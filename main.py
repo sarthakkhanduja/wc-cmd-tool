@@ -7,6 +7,12 @@ def countBytes(fileName):
     return os.path.getsize(fileName)
 
 
+def countLines(fileName):
+    f = open(fileName, "r", encoding="utf8")
+    num_lines = sum(1 for i in f)
+    return num_lines
+
+
 if __name__ == "__main__":
     args = sys.argv[1:]
     # print(args)
@@ -28,6 +34,14 @@ if __name__ == "__main__":
                 fileName = args[1]
                 fileBytes = countBytes(fileName)
                 print(fileBytes, fileName)
+            except Exception as err:
+                print("You're required to give a file name. Either there is no name given, or the given file isn't "
+                      "present in your pwd")
+        elif flag == "-l":
+            try:
+                fileName = args[1]
+                fileLines = countLines(fileName)
+                print(fileLines, fileName)
             except Exception as err:
                 print("You're required to give a file name. Either there is no name given, or the given file isn't "
                       "present in your pwd")
