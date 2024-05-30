@@ -1,6 +1,6 @@
 import sys
 import os
-from collections import Counter
+
 
 def countBytes(fileName):
     f = open(fileName, "r")
