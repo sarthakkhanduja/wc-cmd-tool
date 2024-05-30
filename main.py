@@ -1,6 +1,6 @@
 import sys
 import os
-
+from collections import Counter
 
 def countBytes(fileName):
     f = open(fileName, "r")
@@ -18,6 +18,14 @@ def countWords(fileName):
     data = f.read()
     words = data.split()
     return len(words)
+
+
+def countChar(fileName):
+    chars = 0
+    with open(fileName, 'r', encoding='utf-8') as file:
+        for line in file:
+            chars += len(line) + 1
+    return chars
 
 
 if __name__ == "__main__":
@@ -60,5 +68,12 @@ if __name__ == "__main__":
             except Exception as err:
                 print("You're required to give a file name. Either there is no name given, or the given file isn't "
                       "present in your pwd")
+        elif flag == "-m":
+            try:
+                fileName = args[1]
+                fileChars = countChar(fileName)
+                print(fileChars, fileName)
+            except Exception as err:
+                print(err)
         else:
             print("Unknown, so far")
