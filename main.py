@@ -13,6 +13,13 @@ def countLines(fileName):
     return num_lines
 
 
+def countWords(fileName):
+    f = open(fileName, "r", encoding="utf8")
+    data = f.read()
+    words = data.split()
+    return len(words)
+
+
 if __name__ == "__main__":
     args = sys.argv[1:]
     # print(args)
@@ -42,6 +49,14 @@ if __name__ == "__main__":
                 fileName = args[1]
                 fileLines = countLines(fileName)
                 print(fileLines, fileName)
+            except Exception as err:
+                print("You're required to give a file name. Either there is no name given, or the given file isn't "
+                      "present in your pwd")
+        elif flag == "-w":
+            try:
+                fileName = args[1]
+                fileWords = countWords(fileName)
+                print(fileWords, fileName)
             except Exception as err:
                 print("You're required to give a file name. Either there is no name given, or the given file isn't "
                       "present in your pwd")
