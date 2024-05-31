@@ -1,7 +1,7 @@
 # Custom Word Count Tool (ccwc)
 
 ## Overview
-
+This is Coding Challenge #1 by John Crickett.
 The goal of this project is to create a Python-based command-line tool that replicates the functionality of the Unix `wc` (word count) command. This tool allows users to count the number of bytes, lines, words, and characters in a given file or from standard input. 
 
 ## Initial Approach
